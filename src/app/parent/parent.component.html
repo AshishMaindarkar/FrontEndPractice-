@@ -1,0 +1,13 @@
+<div class="container foo ">
+    <p>parent works!</p>
+    <a (click)="changeFromParent()">Change from parent</a>
+    {{data}}
+    <form [formGroup]="selectUser">
+        <select class="form-control col-4" formControlName="selectedUser" (change)="onChange($event)">
+            <option selected disabled>Select user</option>
+            <option *ngFor="let user of UserDetailsData" value="{{user.id}}">{{user.name}}</option>
+        </select>
+    </form>
+    <br/>
+    <app-child [parentData]=data [Id]=id></app-child>
+</div>

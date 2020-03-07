@@ -1,0 +1,17 @@
+<nav class="navbar navbar-fixed bg-dark">
+    <a class="navbar-brand text-success" [routerLink]="['/home']">DMI</a>
+    <div class="nav">
+        <a class="nav-link" [routerLink]="['/home/adduser']">Add User</a>
+        <a class="nav-link" [routerLink]="['/home/viewUser']">User details</a>
+        <a class="nav-link" [routerLink]="['/home/parent']">Onchanges</a>
+
+    </div>
+    <small class="text-success float-left">Welcome {{name}}</small>
+    <form class="form-inline">
+        <button class="btn btn-outline-danger my-2 my-sm-0" type="submit" (click)="logout()">Logout</button>
+    </form>
+</nav>
+<h2>Display Data using Behavior Subject:</h2>
+<small>Welcome{{currentUserData.userName}}</small>
+<h1>Hello</h1>
+<router-outlet></router-outlet>

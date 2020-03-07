@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <form #ResetForm="ngForm" novalidate>
+                <div class="mt-5">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Reset Password</h2>
+                            <ng-template [ngIf]="error">
+                                <div style="color: red;">Username or password is invalid !
+                                </div>
+                            </ng-template>
+                        </div>
+                        <div class="card-body transbox">
+                            <div class="form-group">
+                                <input class="form-control" type="text" name="UserName" #username="ngModel"
+                                    [(ngModel)]="userReset.userName" placeholder="Username" disabled>
+                            </div>
+
+                            <div class="form-group">
+                                <input class="form-control mt-3" type="password" name="Password"
+                                    [class.is-invalid]="password.invalid && password.touched"
+                                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$"
+                                    #password="ngModel" [(ngModel)]="userReset.userPassword" placeholder=" Old Password"
+                                    required>
+
+                                <small class="text-white"
+                                    [class.d-none]="password.valid || password.untouched">Password is
+                                    required and strong</small>
+                            </div>
+
+
+                            <div class="form-group">
+                                <input class="form-control mt-3" type="password" name="Lastname"
+                                    [class.is-invalid]="newpassword.invalid && newpassword.touched"
+                                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$"
+                                    #newpassword="ngModel" [(ngModel)]="userReset.userNewPassword"
+                                    placeholder=" New Password" required>
+                                <small class="text-white"
+                                    [class.d-none]="newpassword.valid || newpassword.untouched">Password is
+                                    required and strong</small>
+                            </div>
+
+                        </div>
+                        <div class="card-footer">
+                            <div class="row lk">
+                                <button type="submit" class="btn btn-success btn-md ml-3 "
+                                    (click)="ResetUserPassword(ResetForm)">Reset Password</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</div>
